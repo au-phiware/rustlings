@@ -3,7 +3,7 @@
 // Scroll down for hints!
 
 fn main() {
-    let a = ???
+    let a = [0; 1_000_000];
 
     if a.len() >= 100 {
         println!("Wow, that's a big array!");

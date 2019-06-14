@@ -1,15 +1,13 @@
 // iterators4.rs
 
 pub fn factorial(num: u64) -> u64 {
-    // Complete this function to return factorial of num
-    // Do not use:
-    // - return
-    // For extra fun don't use:
-    // - imperative style loops (for, while)
-    // - additional variables
-    // For the most fun don't use:
-    // - recursion
-    // Scroll down for hints.
+    (1..=num).fold(1,|f,i|{f*i})
+}
+
+// Oops! I thought it said fibonacci...
+// I thought every programming exercise book HAD to include the fibonacci sequence!
+pub fn fibonacci(num: u64) -> u64 {
+    (0..num).fold((0,1),|(a,b),_|{(b,a+b)}).1
 }
 
 #[cfg(test)]
@@ -28,6 +26,13 @@ mod tests {
     #[test]
     fn factorial_of_4() {
         assert_eq!(24, factorial(4));
+    }
+
+    #[test]
+    fn fibonacci_up_10() {
+        assert_eq!(
+            "[1, 1, 2, 3, 5, 8, 13, 21, 34, 55]",
+            format!("{:?}", (0..10).map(|n| fibonacci(n)).collect::<Vec<u64>>()));
     }
 }
 
